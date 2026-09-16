@@ -1,0 +1,272 @@
+/* Reseteo básico para que se vea igual en todos los navegadores */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fondo con un degradado azul claro inspirado en tu foto */
+    background: linear-gradient(135deg, #d4fcff, #aeb6e0);
+    color: #333;
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+/* Contenedor principal que agrupa todo como si fuera una hoja de papel */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap; /* Permite que se adapte en pantallas pequeñas */
+}
+
+/* --- ESTILOS DEL ENCABEZADO --- */
+header {
+    width: 100%;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 40px 30px;
+    border-bottom: 1px solid #eee;
+}
+
+header img {
+    border: 4px solid #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+header h1 {
+    color: #2c3e50;
+    font-size: 2.2em;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+header h2 {
+    color: #3498db;
+    font-size: 1.2em;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+header p {
+    max-width: 850px;
+    margin: 0 auto;
+    color: #555;
+    text-align: justify;
+    font-size: 0.95em;
+}
+
+/* Ocultamos la línea <hr> ya que usaremos los bordes de los contenedores */
+hr {
+    display: none; 
+}
+
+/* --- COLUMNA IZQUIERDA (Info, Tech, Languages, Badges) --- */
+aside {
+    flex: 1;
+    min-width: 280px;
+    background-color: #2c3e50; /* Azul oscuro elegante */
+    color: #ecf0f1;
+    padding: 40px 30px;
+}
+
+aside h3 {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+aside section {
+    margin-bottom: 35px;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside ul li {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+aside ul li strong {
+    color: #3498db;
+}
+
+aside a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+aside a:hover {
+    text-decoration: underline;
+    color: #61b0e8;
+}
+
+/* --- COLUMNA DERECHA (Experience, Education) --- */
+main {
+    flex: 2.5;
+    min-width: 400px;
+    padding: 40px 50px;
+    background-color: #fff;
+}
+
+main h3 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+    font-size: 1.3em;
+    letter-spacing: 1px;
+}
+
+main section {
+    margin-bottom: 40px;
+}
+
+article {
+    margin-bottom: 30px;
+}
+
+article h4 {
+    color: #2c3e50;
+    font-size: 1.15em;
+    margin-bottom: 2px;
+}
+
+article p {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+article ul {
+    margin-left: 20px;
+    font-size: 0.95em;
+    color: #444;
+}
+
+article ul li {
+    margin-bottom: 6px;
+}
+
+/* --- DISEÑO RESPONSIVO (Para celulares) --- */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        flex-direction: column;
+    }
+    aside, main {
+        min-width: 100%;
+        padding: 30px 20px;
+    }
+    header h1 {
+        font-size: 1.8em;
+    }
+}
+
+/* --- EFECTOS DE SCROLL --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    will-change: opacity, transform; /* Optimización de rendimiento */
+}
+
+/* Esta clase se agregará mágicamente con JavaScript */
+.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* --- ESTILOS DE LOS ÍCONOS --- */
+i {
+    width: 25px; /* Mantiene todos los íconos alineados aunque sean de distintos tamaños */
+    text-align: center;
+    margin-right: 8px;
+}
+
+/* Íconos en la barra oscura lateral (azul clarito para que resalten) */
+aside i {
+    color: #61b0e8;
+}
+
+/* Íconos en la parte blanca de la derecha (azul oscuro/base) */
+main i {
+    color: #3498db;
+}
+
+/* Íconos de las redes sociales o links al hacer hover */
+aside a:hover i {
+    color: #ecf0f1;
+    transition: color 0.3s;
+}
+
+/* --- ANIMACIÓN MATRIX (INTRO) --- */
+#matrix-intro {
+    position: fixed; /* Se pega al cristal de la pantalla, no al documento */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #0b192c;
+    z-index: 999999; /* Asegura que tape absolutamente TODO */
+    transition: opacity 0.8s ease-out, visibility 0.8s;
+}
+
+.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#matrix-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- BOTÓN DE DESCARGA --- */
+.btn-download {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 30px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.btn-download i {
+    color: #fff; /* Asegura que el ícono de PDF sea blanco */
+    margin-right: 10px;
+}
+
+/* Efecto al pasar el mouse (Hover) */
+.btn-download:hover {
+    background-color: #2980b9; /* Azul un poco más oscuro */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); /* Se levanta un poquito */
+}
