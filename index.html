@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <body>
     <!-- PANTALLA DE INTRODUCCIÓN MATRIX -->
     <div id="matrix-intro">
         <canvas id="matrix-canvas"></canvas>
@@ -173,8 +172,11 @@
             </section>
         </main>
     </div>
-    <!-- ... tu código HTML anterior ... -->
-    
+
+    <button id="theme-toggle" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+        </button>
+
     <script>
 
         // --- EFECTO MATRIX EN AZUL ---
@@ -268,8 +270,32 @@
         elementsToAnimate.forEach(element => {
             observer.observe(element);
         });
+
+        // --- LÓGICA DEL MODO OSCURO ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const icon = themeToggleBtn.querySelector('i');
+
+        // 1. Revisamos si el usuario ya tenía el modo oscuro guardado
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun'); // Cambiamos a sol
+        }
+
+        // 2. Agregamos el evento de clic al botón
+        themeToggleBtn.addEventListener('click', () => {
+            // Alternamos la clase en el body
+            document.body.classList.toggle('dark-mode');
+            
+            // Si la clase se agregó, guardamos la preferencia y cambiamos el ícono
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('dark-mode', 'enabled');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                // Si se quitó, borramos la preferencia y regresamos la luna
+                localStorage.setItem('dark-mode', 'disabled');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
     </script>
-</body>
-</html>
 </body>
 </html>
